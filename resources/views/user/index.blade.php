@@ -25,7 +25,7 @@
                                 </div>
 
                             @endif 
-                            <form method="POST" action="{{route('create.user')}}">
+                            <form method="POST" action="{{url('createUser')}}">
                                 @csrf
                                 <div class="form-group">
                                     <strong><label for="name">Name:</label></strong>

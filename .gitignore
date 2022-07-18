@@ -2,7 +2,12 @@
 /public/hot
 /public/storage
 /storage/*.key
+<<<<<<< HEAD
 /vendor
+=======
+
+.env
+>>>>>>> 0f683c515b54e82f479ee5909f77a71a8923882d
 .env.backup
 .phpunit.result.cache
 docker-compose.override.yml
