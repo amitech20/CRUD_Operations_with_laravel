@@ -26,7 +26,7 @@
 
                             @endif 
                             <form method="POST" action="{{route('create.user')}}">
-                                @csrf
+                                
                                 <div class="form-group">
                                     <strong><label for="name">Name:</label></strong>
                                     <input type="text" name="name" class="form-control" placeholder="What is your fullname">
