@@ -20,7 +20,7 @@ class UserController extends Controller
         $post->email = $request->email;
         $post->phone = $request->number;
         $post->save();
-        return back()->with('User_created',"User's detail has been created successfully");
+        return redirect()->back()->with('User_created',"User's detail has been created successfully");
 
     }
 
