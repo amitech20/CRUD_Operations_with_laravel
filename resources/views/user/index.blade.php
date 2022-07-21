@@ -19,8 +19,13 @@
                             <strong>ADD YOUR DETAILS</strong> <a href="/" class="btn btn-success">SHOW ALL USERS</a>
                         </div>
                         <div class="card-body">
-                        
-                            <form method="POST" action="createUser">
+                        @if(session('User_created'))
+                                <div class="alert alert-success" role="alert">
+                                    {{session('User_created')}}
+                                </div>
+
+                            @endif 
+                            <form method="POST" action="{{url('createUser')}}">
                                 @csrf
                                 <div class="form-group">
                                     <strong><label for="name">Name:</label></strong>
