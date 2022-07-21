@@ -20,7 +20,7 @@
                         </div>
                         <div class="card-body">
                         
-                            <form method="POST" action="create.user">
+                            <form method="POST" action="{{route('create.user')}}">
                                 @csrf
                                 <div class="form-group">
                                     <strong><label for="name">Name:</label></strong>
