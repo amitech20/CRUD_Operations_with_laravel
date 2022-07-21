@@ -19,7 +19,7 @@
                             <strong>EDIT YOUR DETAILS <a href="/" class="btn btn-info" style="color:green;"> Back</a></strong>
                         </div>
                         <div class="card-body">
-                        @if(session('edit_user'))
+                         @if(session('edit_user'))
                                 <div class="alert alert-success" role="alert">
                                     {{session('edit_user')}}
                                 </div>
