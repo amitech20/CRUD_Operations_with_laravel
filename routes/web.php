@@ -14,16 +14,18 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('create',[UserController::class,'create']);
+Route::get('/', function () {
+    return view('create');
+});
 
-Route::post('createUser',[UserController::class,'createUser'])->name('create.user');
+Route::get('wel', function () {
+    return view('welcome');
+});
 
-Route::get('/',[UserController::class,'getUsers']);
 
-Route::get('edit/{id}',[UserController::class,'view']);
-
-Route::post('editUser',[UserController::class,'editUsers'])->name('edit.user');
-
-Route::get('delete/{id}',[UserController::class,'deleteUser']);
-
+Route::post('register', [UserController::class, 'Createuser']);
+Route::any('edit/{id}', [UserController::class, 'Edituser']);
+Route::any('delete/{id}', [UserController::class, 'Deleteuser']);
+Route::any('update/{id}', [UserController::class, 'updateuser']);
+Route::get('view', [UserController::class, 'Getuser']);
 
