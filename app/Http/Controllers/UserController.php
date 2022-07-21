@@ -2,44 +2,54 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\User;
+
 
 class UserController extends Controller
 {
-    public function Createuser(Request $request){
-$use = new User();
-$use->name = $request->name;
-$use->phone_num = $request->phone_num;
-$use->email = $request->email;
-$use->save();
-return redirect()->back()->with('status', 'User Created Successfully!');
+    public function create()
+    {
+        return view('user.index');
     }
 
-    public function Edituser($id){
-$edit = User::find($id);
-return view('Edituser', compact('edit'));
-    }
-
-    public function updateuser(Request $request, $id){
-$upd = User::find($id);
-$inp = $request->all();
-$upd->update($inp);
-return redirect('view')->with('status', 'User Updated Successfully!');
+    public function createUser(Request $request)
+    {
+        $post = new user();
+        $post->name = $request->name;
+        $post->email = $request->email;
+        $post->phone = $request->number;
+        $post->save();
+        return back()->with('User_created',"User's detail has been created successfully");
 
     }
 
-    public function Getuser(){
-$view = User::all();
-return view('Users', compact('view'));
+    public function view($id)
+    {
+        // $post = user::where('id',$id)->first();
+        $post = user::find($id);
+        return view('user.edituser',compact('post'));
     }
 
-
-    public function Deleteuser($id){
-$delete = User::find($id);
-$delete->delete();
-return redirect('view')->with('status', 'User Deleted Successfully!');
+    public function editUsers(Request $request)
+    {
+        $post = user::find($request->id);
+        $post->name = $request->name;
+        $post->email = $request->email;
+        $post->phone = $request->number;
+        $post->save();
+        return back()->with('edit_user', "User's detail has been updated successfully");
+        
     }
 
-    
+    public function deleteUser($id)
+    {
+        $post = user::where('id',$id)->delete();
+        return back()->with('User_deleted','User has been deleted successfully');
+    }
+    public function getUsers()
+    {
+        $post = user::orderBy('id','ASC')->get();
+        return view('user.users',compact('post'));
+    }
 }
